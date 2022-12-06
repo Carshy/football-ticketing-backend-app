@@ -3,4 +3,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  namespace :api do
+    namespace :v1 do
+      resources :matches, only: [:index, :create]
+    end
+    namespace :v2 do
+      resources :users, only: [:create]
+      get '/authenticate', to: 'users#authenticate'
+    end
+  end
+  
 end
