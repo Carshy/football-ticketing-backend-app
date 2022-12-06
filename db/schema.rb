@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_150958) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_103858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_150958) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -31,6 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_150958) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "date"
+    t.string "city"
     t.index ["match_id"], name: "index_tickets_on_match_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
@@ -41,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_150958) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "matches", "users"
   add_foreign_key "tickets", "matches"
   add_foreign_key "tickets", "users"
 end
