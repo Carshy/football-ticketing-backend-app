@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     namespace :v2 do
       resources :users, only: [:create]
+      get '/authenticate', to: 'users#authenticate'
     end
   end
   
