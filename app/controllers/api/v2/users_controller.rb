@@ -13,6 +13,15 @@ class Api::V2::UsersController < ApplicationController
     end
   end
 
+  def authenticate
+    @db_user = User.where(name: params[:name])
+    if @db_user.exists?
+      render json: @db_user, status: :created
+    else
+      render json: "Error, user does not exist", status: :unprocessable_entity
+    end
+  end
+
   private
 
   def user_params
