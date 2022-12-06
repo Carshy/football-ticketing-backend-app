@@ -2,7 +2,7 @@ class Api::V2::UsersController < ApplicationController
   def create
     @db_user = User.where(name: params[:name])
     if @db_user.exists?
-      render json: "Error, user exist", status: :unprocessable_entity
+      render json: 'Error, user exist', status: :unprocessable_entity
     else
       @user = User.new(user_params)
       if @user.save
@@ -18,7 +18,7 @@ class Api::V2::UsersController < ApplicationController
     if @db_user.exists?
       render json: @db_user, status: :created
     else
-      render json: "Error, user does not exist", status: :unprocessable_entity
+      render json: 'Error, user does not exist', status: :unprocessable_entity
     end
   end
 
