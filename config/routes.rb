@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "api/v3"
+  get "api/tickets"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -9,8 +11,10 @@ Rails.application.routes.draw do
     end
     namespace :v2 do
       resources :users, only: [:create]
-      get '/authenticate', to: 'users#authenticate'
+      get "/authenticate", to: "users#authenticate"
+    end
+    namespace :v3 do
+      resources :tickets, only: [:index, :create]
     end
   end
-  
 end
