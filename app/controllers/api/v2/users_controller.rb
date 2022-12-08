@@ -3,7 +3,7 @@ class Api::V2::UsersController < ApplicationController
     @user = User.all
     render json: @user, status: :created
   end
-  
+
   def create
     @db_user = User.where(name: params[:name])
     if @db_user.exists?
