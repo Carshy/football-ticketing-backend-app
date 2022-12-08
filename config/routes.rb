@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :matches, only: [:index, :create]
     end
     namespace :v2 do
-      resources :users, only: [:create]
+      resources :users, only: [:index, :create]
       get '/authenticate', to: 'users#authenticate'
     end
   end
