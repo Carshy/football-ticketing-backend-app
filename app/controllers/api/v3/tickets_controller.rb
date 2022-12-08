@@ -4,6 +4,11 @@ class Api::V3::TicketsController < ApplicationController
     render json: @ticket
   end
 
+  def new
+    @ticket = Ticket.new
+    render json: @ticket
+  end
+
   def create
     @ticket = Ticket.new(ticket_params)
     if @ticket.save
