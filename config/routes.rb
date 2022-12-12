@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
     namespace :v2 do
       resources :users, only: [:create]
-      get "/authenticate", to: "users#authenticate"
+      post "/authenticate", to: "users#authenticate"
     end
     namespace :v3 do
       resources :tickets, only: [:index, :create]
