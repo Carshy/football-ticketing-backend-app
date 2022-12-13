@@ -15,16 +15,12 @@
 # gem "pg"
 #
 default: &default
+  host: localhost
   adapter: postgresql
   encoding: unicode
-  host: localhost
-  username: postgres
-  password: mike
+  username: <%= ENV["APP_DATABASE_ROLE_NAME"] %>
+  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
   port: 5432
-  # host: localhost
-  # username: <%= ENV["APP_DATABASE_ROLE_NAME"] %>
-  # password: <%= ENV["APP_DATABASE_PASSWORD"] %>
-  # port: 5432
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

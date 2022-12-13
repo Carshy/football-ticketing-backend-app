@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :matches, only: [:index, :create]
+      resources :matches, only: [:index, :create, :destroy]
     end
     namespace :v2 do
       resources :users, only: [:create]
