@@ -16,9 +16,9 @@ class Api::V1::MatchesController < ApplicationController
   def destroy
     @match = Match.find(params[:id])
     if @match.destroy
-      render json: { result: 'Match has been deleted' } 
+      render json: { result: 'Match has been deleted' }
     else
-      render json: { result: 'Match has not been deleted' } 
+      render json: { result: 'Match has not been deleted' }
     end
   end
 
