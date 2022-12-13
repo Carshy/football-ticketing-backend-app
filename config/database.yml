@@ -18,8 +18,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: <%= ENV["APP_DATABASE_ROLE_NAME"] %>
-  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+  username: postgres
+  password: mike
   port: 5432
   # host: localhost
   # username: <%= ENV["APP_DATABASE_ROLE_NAME"] %>

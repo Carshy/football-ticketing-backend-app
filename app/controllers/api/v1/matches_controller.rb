@@ -7,7 +7,7 @@ class Api::V1::MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     if @match.save
-      render json: @match, status: :created
+      render json: { status: 'created' }, status: :created
     else
       render json: @match.errors, status: :unprocessable_entity
     end
