@@ -13,6 +13,15 @@ class Api::V1::MatchesController < ApplicationController
     end
   end
 
+  def destroy
+    @match = Match.find(params[:id])
+    if @match.destroy
+      render json: { result: 'Match has been deleted' } 
+    else
+      render json: { result: 'Match has not been deleted' } 
+    end
+  end
+
   private
 
   def match_params
