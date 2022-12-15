@@ -1,6 +1,6 @@
 class Api::V3::TicketsController < ApplicationController
   def index
-    @ticket = Ticket.where(user_id: params[:user_id])
+    @ticket = Ticket.all
     render json: @ticket
   end
 
@@ -12,14 +12,14 @@ class Api::V3::TicketsController < ApplicationController
   end
 
   def create
-    ticket = Ticket.new(ticket_params)
-    ticket.match = Match.find(params[:match_id])
-    if ticket.save
-      render json: ticket, status: :created
+    @ticket = Ticket.new(ticket_params)
+    if @ticket.save
+      render json: @ticket, status: :created
     else
-      render json: ticket.errors, status: :unprocessable_entity
+      render json: @ticket.errors, status: :unprocessable_entity
     end
   end
+
 
   def destroy
     @del_ticket = Ticket.find(params[:id]).destroy
