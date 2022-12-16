@@ -22,7 +22,6 @@
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
-  - [Usage](#usage)
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
@@ -125,6 +124,8 @@ Run rails db:migrate
 
 Lastly,
 Run rails s
+
+The API documentation can be found here after running the app `http://localhost:3000/api-docs/index.html`
 
 ### Link to React App
 
