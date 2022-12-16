@@ -20,7 +20,6 @@ class Api::V3::TicketsController < ApplicationController
     end
   end
 
-
   def destroy
     @del_ticket = Ticket.find(params[:id]).destroy
     render json: @del_ticket

@@ -22,7 +22,6 @@
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
-  - [Usage](#usage)
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
@@ -126,6 +125,8 @@ Run rails db:migrate
 Lastly,
 Run rails s
 
+The API documentation can be found here after running the app `http://localhost:3000/api-docs/index.html`
+
 ### Link to React App
 
 [Link] - https://github.com/Carshy/football-ticketing-frontend-app.git
@@ -136,11 +137,6 @@ Run npm install
     
 Lastly,
 Run npm start    
-
-
-### Usage
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
@@ -188,6 +184,6 @@ Give a ⭐️ if you like this project!
 
 This project is [MIT](./MIT.md) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
