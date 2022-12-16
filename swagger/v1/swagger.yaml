@@ -5,24 +5,161 @@ info:
   version: v1
 paths:
   "/api/v1/matches":
-    get:
-      summary: Retrieves Matches
+    post:
+      summary: Creates a match
       tags:
       - Matches
-      parameters:
-      - name: Authorization
-        in: header
-        required: true
-        schema:
-          type: string
-      - name: Accept
-        in: header
-        required: true
-        schema:
-          type: string
+      parameters: []
+      responses:
+        '200':
+          description: match created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                stadium:
+                  type: string
+                location:
+                  type: string
+                date:
+                  type: string
+                price:
+                  type: integer
+                home_team:
+                  type: string
+                away_team:
+                  type: string
+                photo:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - id
+              - stadium
+              - location
+              - home_team
+              - away_team
+              - price
+              - date
+              - photo
+              - user_id
+    get:
+      summary: Gets all matches
+      tags:
+      - Matches
       responses:
         '200':
           description: matches found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  stadium:
+                    type: string
+                  location:
+                    type: string
+                  date:
+                    type: string
+                  price:
+                    type: integer
+                  home_team:
+                    type: string
+                  away_team:
+                    type: string
+                  photo:
+                    type: string
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - stadium
+                - location
+                - home_team
+                - away_team
+                - price
+                - date
+                - photo
+                - user_id
+        '404':
+          description: match not found
+  "/api/v3/tickets":
+    post:
+      summary: Creates a ticket
+      tags:
+      - Tickets
+      parameters: []
+      responses:
+        '200':
+          description: ticket created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                date:
+                  type: string
+                city:
+                  type: string
+                user_id:
+                  type: integer
+                match_id:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - id
+              - date
+              - city
+              - user_id
+              - match_id
+              - quantity
+    get:
+      summary: Gets all tickets
+      tags:
+      - Tickets
+      responses:
+        '200':
+          description: ticket found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  date:
+                    type: string
+                  city:
+                    type: string
+                  user_id:
+                    type: integer
+                  match_id:
+                    type: integer
+                  quantity:
+                    type: integer
+                required:
+                - id
+                - date
+                - city
+                - user_id
+                - match_id
+                - quantity
+        '404':
+          description: ticket not found
 servers:
 - url: https://{defaultHost}
   variables:
