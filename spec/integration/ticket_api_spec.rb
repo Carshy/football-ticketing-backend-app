@@ -13,9 +13,9 @@ describe 'Matches API' do
           city: { type: :string },
           user_id: { type: :integer },
           match_id: { type: :integer },
-          quantity: { type: :integer },
+          quantity: { type: :integer }
         },
-        required: [ 'id', 'date', 'city', 'user_id', 'match_id', 'quantity' ]
+        required: %w[id date city user_id match_id quantity]
       }
 
       response '200', 'ticket created' do
@@ -36,15 +36,15 @@ describe 'Matches API' do
       produces 'application/json'
       response '200', 'ticket found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-            date: { type: :string },
-            city: { type: :string },
-            user_id: { type: :integer },
-            match_id: { type: :integer },
-            quantity: { type: :integer },
-        },
-        required: [ 'id', 'date', 'city', 'user_id', 'match_id', 'quantity' ]
+               properties: {
+                 id: { type: :integer },
+                 date: { type: :string },
+                 city: { type: :string },
+                 user_id: { type: :integer },
+                 match_id: { type: :integer },
+                 quantity: { type: :integer }
+               },
+               required: %w[id date city user_id match_id quantity]
 
         let(:ticket) { { date: '2020-10-10', city: 'City', user_id: 1, match_id: 1, quantity: 1 } }
         run_test!
@@ -56,5 +56,4 @@ describe 'Matches API' do
       end
     end
   end
-
 end

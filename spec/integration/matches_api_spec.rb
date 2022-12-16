@@ -11,19 +11,21 @@ describe 'Matches API' do
           id: { type: :integer },
           stadium: { type: :string },
           location: { type: :string },
-          date: { type: :string},
-          price: { type: :integer},
-          home_team: { type: :string},
-          away_team: { type: :string},
+          date: { type: :string },
+          price: { type: :integer },
+          home_team: { type: :string },
+          away_team: { type: :string },
           photo: { type: :string },
-          user_id: { type: :integer },
+          user_id: { type: :integer }
         },
-        required: [ 'id', 'stadium', 'location', 'home_team', 'away_team', 'price', 'date', 'photo', 'user_id' ]
+        required: %w[id stadium location home_team away_team price date photo user_id]
       }
 
       response '200', 'match created' do
-        let(:match) { { stadium: 'Stadium', location: 'Location', home_team: 'Home team', away_team: 'Away team',
-          price: 100, date: '2020-10-10', photo: 'app_screenshot.png', user_id: 1 } }
+        let(:match) do
+          { stadium: 'Stadium', location: 'Location', home_team: 'Home team', away_team: 'Away team',
+            price: 100, date: '2020-10-10', photo: 'app_screenshot.png', user_id: 1 }
+        end
         run_test!
       end
 
@@ -40,22 +42,24 @@ describe 'Matches API' do
       produces 'application/json'
       response '200', 'matches found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-            stadium: { type: :string },
-            location: { type: :string },
-            date: { type: :string},
-            price: { type: :integer},
-            home_team: { type: :string},
-            away_team: { type: :string},
-            photo: { type: :string },
-            user_id: { type: :integer },
-          },
-          required: [ 'id', 'stadium', 'location', 'home_team', 'away_team', 'price', 'date', 'photo', 'user_id' ]
+               properties: {
+                 id: { type: :integer },
+                 stadium: { type: :string },
+                 location: { type: :string },
+                 date: { type: :string },
+                 price: { type: :integer },
+                 home_team: { type: :string },
+                 away_team: { type: :string },
+                 photo: { type: :string },
+                 user_id: { type: :integer }
+               },
+               required: %w[id stadium location home_team away_team price date photo user_id]
 
-          let(:match) { { stadium: 'Stadium', location: 'Location', home_team: 'Home team', away_team: 'Away team',
-            price: 100, date: '2020-10-10', photo: 'app_screenshot.png', user_id: 1 } }
-          run_test!
+        let(:match) do
+          { stadium: 'Stadium', location: 'Location', home_team: 'Home team', away_team: 'Away team',
+            price: 100, date: '2020-10-10', photo: 'app_screenshot.png', user_id: 1 }
+        end
+        run_test!
       end
 
       response '404', 'match not found' do
@@ -64,5 +68,4 @@ describe 'Matches API' do
       end
     end
   end
-
 end
